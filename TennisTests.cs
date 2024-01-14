@@ -5,10 +5,16 @@ namespace TennisKata;
 [TestFixture]
 public class TennisTests
 {
+    [SetUp]
+    public void SetUp(){
+        _tennis = new Tennis();
+    }
+    
+    private Tennis _tennis;
+
     [Test]
     public void Love_All()
     {
-        var tennis = new Tennis();
-        Assert.AreEqual("Love All", tennis.Score());
+        Assert.AreEqual("Love All", _tennis.Score());
     }
 }
