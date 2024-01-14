@@ -6,8 +6,9 @@ namespace TennisKata;
 public class TennisTests
 {
     [Test]
-    public void Test1()
+    public void Love_All()
     {
-        Assert.Pass();
+        var tennis = new Tennis();
+        Assert.AreEqual("Love All", tennis.Score());
     }
 }
