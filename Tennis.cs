@@ -1,24 +1,28 @@
+using System.Reflection;
+
 namespace TennisKata;
 
 public class Tennis
 {
-    private int _firstPlayerScoreTimes;
+    private int _FirstPlayerScoreTimes;
+
+    private readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>
+    {
+        {1, "Fifteen"},
+        {2, "Thirty"}
+    };
 
     public string Score()
     {
-        if(_firstPlayerScoreTimes == 1)
+        if(_FirstPlayerScoreTimes == 1 || _FirstPlayerScoreTimes == 2)
         {
-            return "Fifteen Love";
-        }
-        if(_firstPlayerScoreTimes == 2)
-        {
-            return "Thirty Love";
+            return $"{_scoreLookup[_FirstPlayerScoreTimes]} Love";
         }
         return "Love All";
     }
 
     public void FirstPlayerScore()
     {
-        _firstPlayerScoreTimes++;
+        _FirstPlayerScoreTimes++;
     }
 }
