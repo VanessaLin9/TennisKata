@@ -22,16 +22,38 @@ public class TennisTests
     [Test]
     public void Fifteen_Love()
     {
-        _tennis.FirstPlayerScore();
+        GivenFirstPlayerScore(1);
         ScoreShouldBe("Fifteen Love");
     }
 
     [Test]
     public void Thirty_Love()
     {
-        _tennis.FirstPlayerScore();
-        _tennis.FirstPlayerScore();
+        GivenFirstPlayerScore(2);
         ScoreShouldBe("Thirty Love");
+    }
+
+    [Test]
+    public void Forty_Love()
+    {
+        GivenFirstPlayerScore(3);
+        ScoreShouldBe("Forty Love");
+    }
+
+    [Test]
+    public void Love_Fifteen()
+    {
+        _tennis.SecondPlayerScore();
+        ScoreShouldBe("Love Fifteen");
+    }
+
+
+    private void GivenFirstPlayerScore(int times)
+    {
+        for (int i = 0; i < times; i++)
+        {
+            _tennis.FirstPlayerScore();
+        }
     }
 
 
