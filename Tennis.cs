@@ -9,21 +9,18 @@ public class Tennis
 
     private readonly Dictionary<int, string> _scoreLookup = new Dictionary<int, string>
     {
-        {1, "Fifteen"},
-        {2, "Thirty"},
-        {3, "Forty"}
+        { 0, "Love" },
+        { 1, "Fifteen" },
+        { 2, "Thirty" },
+        { 3, "Forty" }
     };
 
 
     public string Score()
     {
-        if(_FirstPlayerScoreTimes > 0)
+        if (_FirstPlayerScoreTimes > 0 || _SecondPlayerScoreTimes > 0)
         {
-            return $"{_scoreLookup[_FirstPlayerScoreTimes]} Love";
-        }
-        if (_SecondPlayerScoreTimes==1)
-        {
-            return "Love Fifteen";
+            return $"{_scoreLookup[_FirstPlayerScoreTimes]} {_scoreLookup[_SecondPlayerScoreTimes]}";
         }
         return "Love All";
     }
