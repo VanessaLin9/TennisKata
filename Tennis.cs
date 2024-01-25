@@ -18,11 +18,11 @@ public class Tennis
 
     public string Score()
     {
-        if (_FirstPlayerScoreTimes > 0 || _SecondPlayerScoreTimes > 0)
+        if (_FirstPlayerScoreTimes != _SecondPlayerScoreTimes)
         {
             return $"{_scoreLookup[_FirstPlayerScoreTimes]} {_scoreLookup[_SecondPlayerScoreTimes]}";
         }
-        return "Love All";
+        return $"{_scoreLookup[_FirstPlayerScoreTimes]} All";
     }
 
     public void FirstPlayerScore()

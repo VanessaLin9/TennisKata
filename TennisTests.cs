@@ -54,6 +54,23 @@ public class TennisTests
         ScoreShouldBe("Love Thirty");
     }
 
+    [Test]
+    public void Fifteen_All()
+    {
+        GivenFirstPlayerScore(1);
+        GivenSecondPlayerScore(1);
+        ScoreShouldBe("Fifteen All");
+    }
+
+    [Test]
+    public void Thirty_All()
+    {
+        GivenFirstPlayerScore(2);
+        GivenSecondPlayerScore(2);
+        ScoreShouldBe("Thirty All");
+    }
+
+
     private void GivenSecondPlayerScore(int times)
     {
         for (int i = 0; i < times; i++)
