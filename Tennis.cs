@@ -18,10 +18,39 @@ public class Tennis
 
     public string Score()
     {
-        if (_FirstPlayerScoreTimes != _SecondPlayerScoreTimes)
+        if (IsScoreDifferent())
         {
-            return $"{_scoreLookup[_FirstPlayerScoreTimes]} {_scoreLookup[_SecondPlayerScoreTimes]}";
+            return LookupScore();
         }
+        if (IsDeuce())
+        {
+            return Deuce();
+        }
+        return SamScore();
+    }
+
+    private bool IsScoreDifferent()
+    {
+        return _FirstPlayerScoreTimes != _SecondPlayerScoreTimes;
+    }
+
+    private string LookupScore()
+    {
+        return $"{_scoreLookup[_FirstPlayerScoreTimes]} {_scoreLookup[_SecondPlayerScoreTimes]}";
+    }
+
+    private bool IsDeuce()
+    {
+        return _FirstPlayerScoreTimes>=3;
+    }
+
+    private static string Deuce()
+    {
+        return "Deuce";
+    }
+
+    private string SamScore()
+    {
         return $"{_scoreLookup[_FirstPlayerScoreTimes]} All";
     }
 
