@@ -29,13 +29,11 @@ public class Tennis
     {
         if (IsScoreDifferent())
         {
-            if (_FirstPlayerScoreTimes>3 || _SecondPlayerScoreTimes>3)
+            if (IsReadyForGamePoint())
             {
-                if (Math.Abs(_FirstPlayerScoreTimes - _SecondPlayerScoreTimes) == 1)
+                if (IsAdv())
                 {
-                    var advPlayer = _FirstPlayerScoreTimes>_SecondPlayerScoreTimes?
-                        _firstPlayerName:_secondPlayerName;
-                    return $"{advPlayer} Adv";
+                    return $"{AdvPlayer()} Adv";
                 }
             }
 
@@ -46,6 +44,22 @@ public class Tennis
             return Deuce();
         }
         return SamScore();
+    }
+
+    private bool IsAdv()
+    {
+        return Math.Abs(_FirstPlayerScoreTimes - _SecondPlayerScoreTimes) == 1;
+    }
+
+    private bool IsReadyForGamePoint()
+    {
+        return _FirstPlayerScoreTimes>3 || _SecondPlayerScoreTimes>3;
+    }
+
+    private string AdvPlayer()
+    {
+        var advPlayer = _FirstPlayerScoreTimes > _SecondPlayerScoreTimes ? _firstPlayerName : _secondPlayerName;
+        return advPlayer;
     }
 
     private bool IsScoreDifferent()
