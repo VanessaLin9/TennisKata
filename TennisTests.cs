@@ -3,12 +3,11 @@ using NUnit.Framework;
 namespace TennisKata;
 
 [TestFixture]
-public class TennisTests
-{
+public class TennisTests {
     [SetUp]
     public void SetUp()
     {
-        _tennis = new Tennis();
+        _tennis = new Tennis("Joey");
     }
 
     private Tennis _tennis;
@@ -76,6 +75,15 @@ public class TennisTests
         GivenDeuce();
         ScoreShouldBe("Deuce");
     }
+
+    [Test]
+    public void FirstPlayer_Adv()
+    {
+        GivenDeuce();
+        GivenFirstPlayerScore(1);
+        ScoreShouldBe("Joey Adv");
+    }
+
 
     private void GivenDeuce()
     {

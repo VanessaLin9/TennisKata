@@ -15,11 +15,26 @@ public class Tennis
         { 3, "Forty" }
     };
 
+    private readonly string _firstPlayerName;
+
+    public Tennis(string firstPlayerName)
+    {
+        _firstPlayerName = firstPlayerName;
+    }
+
 
     public string Score()
     {
         if (IsScoreDifferent())
         {
+            if (_FirstPlayerScoreTimes>3)
+            {
+                if (_FirstPlayerScoreTimes - _SecondPlayerScoreTimes == 1)
+                {
+                    return $"{_firstPlayerName} Adv";
+                }
+            }
+
             return LookupScore();
         }
         if (IsDeuce())
