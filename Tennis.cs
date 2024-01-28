@@ -16,10 +16,12 @@ public class Tennis
     };
 
     private readonly string _firstPlayerName;
+    private readonly string _secondPlayerName;
 
-    public Tennis(string firstPlayerName)
+    public Tennis(string firstPlayerName, string secondPlayerName)
     {
         _firstPlayerName = firstPlayerName;
+        _secondPlayerName = secondPlayerName;
     }
 
 
@@ -27,11 +29,13 @@ public class Tennis
     {
         if (IsScoreDifferent())
         {
-            if (_FirstPlayerScoreTimes>3)
+            if (_FirstPlayerScoreTimes>3 || _SecondPlayerScoreTimes>3)
             {
-                if (_FirstPlayerScoreTimes - _SecondPlayerScoreTimes == 1)
+                if (Math.Abs(_FirstPlayerScoreTimes - _SecondPlayerScoreTimes) == 1)
                 {
-                    return $"{_firstPlayerName} Adv";
+                    var advPlayer = _FirstPlayerScoreTimes>_SecondPlayerScoreTimes?
+                        _firstPlayerName:_secondPlayerName;
+                    return $"{advPlayer} Adv";
                 }
             }
 
