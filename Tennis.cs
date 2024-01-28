@@ -35,6 +35,7 @@ public class Tennis
                 {
                     return $"{AdvPlayer()} Adv";
                 }
+                return $"{AdvPlayer()} Win";
             }
 
             return LookupScore();

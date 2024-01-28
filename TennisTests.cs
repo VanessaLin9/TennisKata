@@ -93,6 +93,14 @@ public class TennisTests
         ScoreShouldBe("Tom Adv");
     }
 
+    [Test]
+    public void SecondPlayer_Win()
+    {
+        GivenDeuce();
+        GivenSecondPlayerScore(2);
+        ScoreShouldBe("Tom Win");
+    }
+
 
     private void GivenDeuce()
     {
